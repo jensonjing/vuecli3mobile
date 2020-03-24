@@ -9,6 +9,7 @@ import { utility } from './common.js';
 
 const obj = {
     getAxios:(type,url,params)=>{
+        axios.defaults.withCredentials=true;//允许携带cookie
         //axios的请求拦截器
         axios.interceptors.request.use(data=>{
             //这里是请求前的操作，可以执行其它自定义任务，例如进行请求前的一些操作。
