@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 import { config } from './config.js';
-import { utility } from './common.js';
+import utility from './common.js';
 
 //这里借用element的组件
 //import { Loading } from 'element-ui'

@@ -1,7 +1,7 @@
 /**
  * 公共js方法
  */
-export const utility = {
+const utility = {
     /*从身份证中获取生日  格式 YYYY-MM-DD*/
     getBirthday: function( idCard ) {
         var birthday = "";
@@ -31,3 +31,5 @@ export const utility = {
         return str;
     }
 };
+
+export default utility;
