@@ -35,7 +35,7 @@ const obj = {
             params = utility.splitObj(params);
             return new Promise((resolve,reject)=>{
                 axios({
-                    method:'get',
+                    method:type,
                     url:config.http_url + url + params
                 }).then(response=>{
                     resolve(response)
@@ -50,7 +50,7 @@ const obj = {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                     },
-                    method:'post',
+                    method:type,
                     responseType: 'json',
                     data:qs.stringify(params)
                 }).then(response=>{
