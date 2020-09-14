@@ -31,7 +31,7 @@ const obj = {
             // loadinginstace.close();//失败关闭加载窗
             return Promise.reject(error);
         });
-        if(type == 'get'){
+        if(type.toUpperCase()=='GET'||type.toUpperCase()=='DELETE'){
             params = utility.splitObj(params);
             return new Promise((resolve,reject)=>{
                 axios({
@@ -43,7 +43,7 @@ const obj = {
                     reject(err)
                 });
             })
-        }else{
+        }else if(type.toUpperCase()=='POST'||type.toUpperCase()=='PUT'){
             return new Promise((resolve,reject)=>{
                 axios({
                     url: config.http_url + url,
