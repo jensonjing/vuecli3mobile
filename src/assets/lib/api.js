@@ -8,7 +8,7 @@ import utility from './common.js';
 //import { Loading } from 'element-ui'
 
 const obj = {
-    getAxios:(type,url,params)=>{
+    getAxios:(type,url,params,token)=>{
         axios.defaults.withCredentials=false;//允许携带cookie
         //axios的请求拦截器
         axios.interceptors.request.use(data=>{
@@ -32,10 +32,16 @@ const obj = {
             return Promise.reject(error);
         });
         if(type.toUpperCase()=='GET'||type.toUpperCase()=='DELETE'){
+            if(params=='undefined'||params==undefined){
+                params = {};
+            };
             params = utility.splitObj(params);
             return new Promise((resolve,reject)=>{
                 axios({
                     method:type,
+                    headers: {
+                        'token':token?token:null
+                    },
                     url:config.http_url + url + params
                 }).then(response=>{
                     resolve(response)
@@ -48,7 +54,8 @@ const obj = {
                 axios({
                     url: config.http_url + url,
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                        'token':token?token:null
                     },
                     method:type,
                     responseType: 'json',
