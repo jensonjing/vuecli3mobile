@@ -61,12 +61,12 @@ export default {
 <style lang="scss">
 #wrap{
     width:100%;
-    height:px2rem(45px);
-    line-height: px2rem(45px);
-    font-size: px2rem(12px);
+    height: 45px;
+    line-height: 45px;
+    font-size: 12px;
     background-color: #f00;
 }
 .fileipt{
-    font-size: px2rem(12px);
+    font-size: 12px;
 }
 </style>

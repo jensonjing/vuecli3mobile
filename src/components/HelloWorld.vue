@@ -15,6 +15,6 @@ export default {
 
 <style lang="scss">
 h1{
-  font-size: px2rem(10px);
+  font-size: 10px;
 }
 </style>
